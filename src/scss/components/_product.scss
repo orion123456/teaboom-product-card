@@ -70,11 +70,6 @@
 .product__gallery {
   grid-area: gallery;
   align-self: start;
-
-  @include media-up(lg) {
-    position: sticky;
-    top: $space-5;
-  }
 }
 
 .product__purchase {
