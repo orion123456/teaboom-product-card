@@ -63,24 +63,101 @@
             <h1 class="product__title" id="product-title">Ананасовый улун</h1>
           </header>
 
-          <div class="product__gallery">
-            <picture>
-              <source
-                type="image/avif"
-                srcset="./src/assets/images/ananasovyj-ulun-480.avif 480w, ./src/assets/images/ananasovyj-ulun-970.avif 970w"
-                sizes="(min-width: 1264px) 576px, (min-width: 768px) 50vw, 100vw"
-              >
-              <img
-                class="product__image"
-                src="./src/assets/images/ananasovyj-ulun-970.jpg"
-                srcset="./src/assets/images/ananasovyj-ulun-480.jpg 480w, ./src/assets/images/ananasovyj-ulun-970.jpg 970w"
-                sizes="(min-width: 1264px) 576px, (min-width: 768px) 50vw, 100vw"
-                width="970"
-                height="970"
-                alt="Сухая заварка ананасового улуна: плотно скрученные изумрудные листья с кусочками цукатов"
-                fetchpriority="high"
-              >
-            </picture>
+          <div class="product__gallery gallery" data-gallery>
+            <button
+              class="gallery__viewer"
+              type="button"
+              aria-label="Открыть фото 1 из 3 на весь экран"
+              data-gallery-viewer
+            >
+              <picture class="gallery__slide" data-gallery-slide>
+                <source
+                  type="image/avif"
+                  srcset="./src/assets/images/ananasovyj-ulun-480.avif 480w, ./src/assets/images/ananasovyj-ulun-970.avif 970w"
+                  sizes="(min-width: 1264px) 576px, (min-width: 768px) 50vw, 100vw"
+                >
+                <img
+                  class="gallery__image"
+                  src="./src/assets/images/ananasovyj-ulun-970.jpg"
+                  srcset="./src/assets/images/ananasovyj-ulun-480.jpg 480w, ./src/assets/images/ananasovyj-ulun-970.jpg 970w"
+                  sizes="(min-width: 1264px) 576px, (min-width: 768px) 50vw, 100vw"
+                  width="970"
+                  height="970"
+                  alt="Сухая заварка ананасового улуна: плотно скрученные изумрудные листья с кусочками цукатов"
+                  fetchpriority="high"
+                >
+              </picture>
+
+              <picture class="gallery__slide" data-gallery-slide hidden>
+                <source
+                  type="image/avif"
+                  srcset="./src/assets/images/ananasovyj-ulun-detail-1-480.avif 480w, ./src/assets/images/ananasovyj-ulun-detail-1-660.avif 660w"
+                  sizes="(min-width: 1264px) 576px, (min-width: 768px) 50vw, 100vw"
+                >
+                <img
+                  class="gallery__image"
+                  src="./src/assets/images/ananasovyj-ulun-detail-1-660.jpg"
+                  srcset="./src/assets/images/ananasovyj-ulun-detail-1-480.jpg 480w, ./src/assets/images/ananasovyj-ulun-detail-1-660.jpg 660w"
+                  sizes="(min-width: 1264px) 576px, (min-width: 768px) 50vw, 100vw"
+                  width="660"
+                  height="660"
+                  alt="Крупный план: кусочки ананасовых цукатов среди скрученных листьев улуна"
+                  loading="lazy"
+                >
+              </picture>
+
+              <picture class="gallery__slide" data-gallery-slide hidden>
+                <source
+                  type="image/avif"
+                  srcset="./src/assets/images/ananasovyj-ulun-detail-2-480.avif 480w, ./src/assets/images/ananasovyj-ulun-detail-2-660.avif 660w"
+                  sizes="(min-width: 1264px) 576px, (min-width: 768px) 50vw, 100vw"
+                >
+                <img
+                  class="gallery__image"
+                  src="./src/assets/images/ananasovyj-ulun-detail-2-660.jpg"
+                  srcset="./src/assets/images/ananasovyj-ulun-detail-2-480.jpg 480w, ./src/assets/images/ananasovyj-ulun-detail-2-660.jpg 660w"
+                  sizes="(min-width: 1264px) 576px, (min-width: 768px) 50vw, 100vw"
+                  width="660"
+                  height="660"
+                  alt="Крупный план: плотная скрутка изумрудного листа улуна"
+                  loading="lazy"
+                >
+              </picture>
+
+              <span class="gallery__zoom" aria-hidden="true">
+                <svg class="gallery__zoom-icon" viewBox="0 0 24 24" focusable="false">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.3-4.3M11 8v6M8 11h6" />
+                </svg>
+              </span>
+            </button>
+
+            <ul class="gallery__thumbs" aria-label="Фотографии товара">
+              <li>
+                <button class="gallery__thumb" type="button" aria-label="Фото 1 из 3" aria-current="true" data-gallery-thumb>
+                  <picture>
+                    <source type="image/avif" srcset="./src/assets/images/ananasovyj-ulun-160.avif">
+                    <img class="gallery__thumb-image" src="./src/assets/images/ananasovyj-ulun-160.jpg" width="160" height="160" alt="">
+                  </picture>
+                </button>
+              </li>
+              <li>
+                <button class="gallery__thumb" type="button" aria-label="Фото 2 из 3" data-gallery-thumb>
+                  <picture>
+                    <source type="image/avif" srcset="./src/assets/images/ananasovyj-ulun-detail-1-160.avif">
+                    <img class="gallery__thumb-image" src="./src/assets/images/ananasovyj-ulun-detail-1-160.jpg" width="160" height="160" alt="">
+                  </picture>
+                </button>
+              </li>
+              <li>
+                <button class="gallery__thumb" type="button" aria-label="Фото 3 из 3" data-gallery-thumb>
+                  <picture>
+                    <source type="image/avif" srcset="./src/assets/images/ananasovyj-ulun-detail-2-160.avif">
+                    <img class="gallery__thumb-image" src="./src/assets/images/ananasovyj-ulun-detail-2-160.jpg" width="160" height="160" alt="">
+                  </picture>
+                </button>
+              </li>
+            </ul>
           </div>
 
           <form
@@ -281,5 +358,29 @@
         </article>
       </div>
     </main>
+
+    <dialog class="lightbox" aria-label="Фотографии товара «Ананасовый улун»" data-lightbox>
+      <div class="lightbox__toolbar">
+        <p class="lightbox__counter" data-lightbox-counter>1 / 3</p>
+        <button class="lightbox__button" type="button" aria-label="Закрыть" data-lightbox-close>
+          <svg class="lightbox__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="lightbox__stage" data-lightbox-stage></div>
+
+      <button class="lightbox__button lightbox__nav lightbox__nav--prev" type="button" aria-label="Предыдущее фото" data-lightbox-prev>
+        <svg class="lightbox__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+      </button>
+      <button class="lightbox__button lightbox__nav lightbox__nav--next" type="button" aria-label="Следующее фото" data-lightbox-next>
+        <svg class="lightbox__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+      </button>
+    </dialog>
   </body>
 </html>

@@ -3,8 +3,11 @@ import '@fontsource/open-sans/600.css';
 import '@fontsource/open-sans/700.css';
 import '../scss/main.scss';
 
+import { initGallery } from './modules/gallery.js';
 import { initVariantPicker } from './modules/variant-picker.js';
 import { initAddToCart } from './modules/add-to-cart.js';
+
+document.querySelectorAll('[data-gallery]').forEach(initGallery);
 
 document.querySelectorAll('[data-purchase]').forEach((form) => {
   initVariantPicker(form);

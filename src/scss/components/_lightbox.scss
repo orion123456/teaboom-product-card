@@ -1,0 +1,140 @@
+@use '../abstracts' as *;
+
+$lightbox-button-size: 44px;
+$lightbox-color: #fff;
+
+// Блокируем прокрутку страницы под открытым окном
+html:has(.lightbox[open]) {
+  overflow: hidden;
+}
+
+.lightbox {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: $lightbox-color;
+  background: transparent;
+  border: 0;
+
+  &[open] {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    animation: lightbox-fade-in $transition-base;
+  }
+
+  &::backdrop {
+    background-color: rgb(17 17 17 / 96%);
+  }
+}
+
+.lightbox__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-3 $space-4;
+}
+
+.lightbox__counter {
+  font-size: 14px;
+  font-weight: $font-weight-semibold;
+  font-variant-numeric: tabular-nums;
+}
+
+.lightbox__stage {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  // Снизу место под кнопки листания на мобильных
+  padding: 0 $space-4 ($space-5 + $lightbox-button-size + $space-4);
+  touch-action: pan-y;
+
+  @include media-up(md) {
+    padding: 0 ($space-6 + $lightbox-button-size) $space-6;
+  }
+}
+
+.lightbox__picture {
+  display: contents;
+}
+
+.lightbox__image {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  background-color: $color-surface;
+  border-radius: $radius-md;
+  user-select: none;
+  animation: lightbox-fade-in $transition-base;
+}
+
+.lightbox__button {
+  display: grid;
+  place-items: center;
+  width: $lightbox-button-size;
+  height: $lightbox-button-size;
+  padding: 0;
+  color: $lightbox-color;
+  background-color: rgb(255 255 255 / 12%);
+  border: 0;
+  border-radius: 50%;
+  transition: background-color $transition-fast;
+
+  @include hover {
+    background-color: rgb(255 255 255 / 24%);
+  }
+
+  &:focus-visible {
+    outline-color: $lightbox-color;
+  }
+}
+
+.lightbox__icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+// На мобильных стрелки внизу под большим пальцем, на больших экранах — по бокам
+.lightbox__nav {
+  position: absolute;
+  bottom: $space-5;
+
+  &--prev {
+    left: calc(50% - #{$lightbox-button-size} - #{$space-3});
+  }
+
+  &--next {
+    left: calc(50% + #{$space-3});
+  }
+
+  @include media-up(md) {
+    top: 50%;
+    bottom: auto;
+    translate: 0 -50%;
+
+    &--prev {
+      left: $space-4;
+    }
+
+    &--next {
+      right: $space-4;
+      left: auto;
+    }
+  }
+}
+
+@keyframes lightbox-fade-in {
+  from {
+    opacity: 0;
+  }
+}

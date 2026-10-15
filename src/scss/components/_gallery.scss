@@ -1,0 +1,137 @@
+@use '../abstracts' as *;
+
+$thumb-size: 64px;
+$thumb-size-md: 80px;
+
+.gallery {
+  display: grid;
+  gap: $space-3;
+}
+
+.gallery__viewer {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  cursor: zoom-in;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+
+  @include hover {
+    .gallery__image {
+      transform: scale(1.03);
+    }
+
+    .gallery__zoom {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  &:focus-visible .gallery__zoom {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.gallery__image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+// На тач-устройствах иконка видна всегда, иначе непонятно, что фото открывается
+.gallery__zoom {
+  position: absolute;
+  right: $space-3;
+  bottom: $space-3;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: $color-heading;
+  background-color: rgb(255 255 255 / 90%);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgb(32 32 32 / 15%);
+  transition:
+    opacity $transition-base,
+    transform $transition-base;
+
+  @media (hover: hover) {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+.gallery__zoom-icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.gallery__thumbs {
+  display: flex;
+  gap: $space-2;
+  // Отступ, чтобы обводка фокуса не обрезалась из-за overflow
+  padding: 3px;
+  margin: -3px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  > li {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+}
+
+.gallery__thumb {
+  display: block;
+  width: $thumb-size;
+  height: $thumb-size;
+  padding: 0;
+  overflow: hidden;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  transition:
+    border-color $transition-fast,
+    box-shadow $transition-fast,
+    opacity $transition-fast;
+
+  @include media-up(md) {
+    width: $thumb-size-md;
+    height: $thumb-size-md;
+  }
+
+  &:not([aria-current='true']) {
+    opacity: 0.75;
+  }
+
+  @include hover {
+    border-color: $color-border-strong;
+    opacity: 1;
+  }
+
+  &[aria-current='true'] {
+    border-color: $color-heading;
+    box-shadow: inset 0 0 0 1px $color-heading;
+  }
+}
+
+.gallery__thumb-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
