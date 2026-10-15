@@ -34,9 +34,11 @@
   grid-area: header;
 }
 
+// Отступы увеличивают зону нажатия до ~26 px, не сдвигая текст
 .product__category {
   display: inline-block;
-  margin-bottom: $space-1;
+  padding-block: $space-1;
+  margin-block: (-$space-1) 0;
   font-size: 12px;
   font-weight: $font-weight-semibold;
   line-height: 1.5;
