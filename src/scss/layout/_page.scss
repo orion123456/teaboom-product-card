@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+.page {
+  padding-block: $space-4 $space-7;
+
+  @include media-up(md) {
+    padding-block: $space-5 64px;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: $container-width + 2 * $space-6;
+  margin-inline: auto;
+  padding-inline: $space-4;
+
+  @include media-up(md) {
+    padding-inline: $space-5;
+  }
+
+  @include media-up(lg) {
+    padding-inline: $space-6;
+  }
+}

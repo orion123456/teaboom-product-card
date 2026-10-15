@@ -1,0 +1,13 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "selector-class-pattern": [
+      "^[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$|^(is|has)-[a-z0-9-]+$",
+      { "message": "Используйте BEM: block__element--modifier" }
+    ],
+    "declaration-block-no-redundant-longhand-properties": [true, { "ignoreShorthands": ["grid-template"] }],
+    "scss/dollar-variable-empty-line-before": null,
+    "scss/double-slash-comment-empty-line-before": null,
+    "no-descending-specificity": null
+  }
+}

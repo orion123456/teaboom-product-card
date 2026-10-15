@@ -1,0 +1,88 @@
+@use '../abstracts' as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  min-height: $control-height;
+  padding: 0 $space-6;
+  font-size: 14px;
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 0;
+  border-radius: $radius-md;
+  transition:
+    background-color $transition-base,
+    color $transition-base,
+    box-shadow $transition-base,
+    transform $transition-fast;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus-visible {
+    @include focus-ring(3px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    transform: none;
+  }
+}
+
+.button__icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform $transition-base;
+
+  &--check {
+    display: none;
+  }
+}
+
+.button--primary {
+  color: $color-heading;
+  background-color: $color-brand;
+
+  @include hover {
+    background-color: $color-brand-hover;
+    box-shadow: 0 4px 12px rgb(32 32 32 / 12%);
+
+    .button__icon--cart {
+      transform: translateX(2px);
+    }
+  }
+
+  &:active {
+    background-color: $color-brand-active;
+    box-shadow: none;
+  }
+
+  &.is-added {
+    color: $color-surface;
+    background-color: $color-success;
+    box-shadow: none;
+
+    .button__icon--cart {
+      display: none;
+    }
+
+    .button__icon--check {
+      display: block;
+    }
+  }
+}

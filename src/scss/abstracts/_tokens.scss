@@ -1,0 +1,57 @@
+// Палитра и типографика повторяют действующий teaboom.ru
+
+// Цвета
+$color-brand: #f5d730;
+$color-brand-hover: #ebc914;
+$color-brand-active: #dcb90b;
+$color-brand-soft: #fefcef;
+$color-brand-border: #f0e4a3;
+
+$color-heading: #202020;
+$color-text: #444;
+// #808080 с сайта не проходит WCAG AA на белом, поэтому чуть темнее
+$color-muted: #707070;
+
+$color-bg: #fbfbfb;
+$color-surface: #fff;
+$color-border: #e4e4e4;
+$color-border-strong: #cbcbcb;
+
+$color-sale: #d32f2f;
+$color-success: #2e7d32;
+$color-focus: #202020;
+
+// Типографика
+$font-family-base: 'Open Sans', -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, arial, sans-serif;
+$font-size-base: 14px;
+$line-height-base: 1.7;
+
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Размеры
+$container-width: 1200px;
+$radius-sm: 4px;
+$radius-md: 6px;
+$control-height: 52px;
+
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 24px;
+$space-6: 32px;
+$space-7: 48px;
+
+// Анимация
+$transition-fast: 0.15s ease;
+$transition-base: 0.2s ease;
+
+// Брейкпоинты те же, что на сайте
+$breakpoints: (
+  sm: 480px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);

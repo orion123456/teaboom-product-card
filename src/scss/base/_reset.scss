@@ -1,0 +1,61 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  text-size-adjust: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ol,
+ul,
+dl,
+dd,
+figure,
+fieldset {
+  margin: 0;
+}
+
+ol,
+ul,
+fieldset,
+legend {
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+fieldset {
+  min-width: 0;
+  border: 0;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}

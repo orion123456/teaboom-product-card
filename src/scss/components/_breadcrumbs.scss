@@ -1,0 +1,68 @@
+@use '../abstracts' as *;
+
+// На мобильных цепочка сворачивается в одну ссылку «назад» на родительскую категорию
+.breadcrumbs {
+  margin-bottom: $space-4;
+  font-size: 13px;
+  line-height: 1.5;
+  color: $color-muted;
+
+  @include media-up(md) {
+    margin-bottom: $space-5;
+  }
+}
+
+.breadcrumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-1 $space-2;
+}
+
+.breadcrumbs__item {
+  display: none;
+  align-items: center;
+  gap: $space-2;
+
+  &::before {
+    content: '';
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-top: 1.5px solid currentcolor;
+    border-left: 1.5px solid currentcolor;
+    transform: rotate(-45deg);
+  }
+
+  &:nth-last-child(2) {
+    display: inline-flex;
+  }
+
+  @include media-up(md) {
+    display: inline-flex;
+
+    &::before {
+      width: 5px;
+      height: 5px;
+      transform: rotate(135deg);
+    }
+
+    &:first-child::before {
+      content: none;
+    }
+  }
+}
+
+.breadcrumbs__link {
+  padding-block: $space-1;
+  text-decoration: none;
+
+  @include hover {
+    color: $color-heading;
+    text-decoration: underline;
+  }
+}
+
+.breadcrumbs__current {
+  color: $color-text;
+}
