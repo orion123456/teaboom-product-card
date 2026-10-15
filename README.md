@@ -21,9 +21,10 @@ npm run build     # сборка в dist/
 npm run preview   # просмотр собранной версии
 npm run lint      # stylelint для SCSS
 npm run images    # пересобрать фото товара из images-source/
+npm run deploy    # проверить, собрать и опубликовать dist/ в ветку gh-pages
 ```
 
-Пути в `dist/` относительные, поэтому сборку можно выложить в любую папку на любом статическом хостинге. Публикация на GitHub Pages настроена в `.github/workflows/deploy.yml` (Settings → Pages → Source: GitHub Actions).
+Пути в `dist/` относительные, поэтому сборку можно выложить в любую папку на любом статическом хостинге. Сейчас она опубликована на GitHub Pages из ветки `gh-pages`.
 
 ## Стек
 
